@@ -18,6 +18,7 @@ import com.zukalover.secureapp.enums.ApplicationUserRole;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
@@ -31,7 +32,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
+		http 
 		.csrf().disable()
 		.authorizeRequests()
 		.antMatchers("/","index","/css/*","/js/*")
@@ -43,7 +44,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET,"/management/api/**").hasAnyRole(ApplicationUserRole.ADMIN.name(),ApplicationUserRole.ADMINTRAINEE.name())
 		.anyRequest()
 		.authenticated()
-		.and()
+		.and() 
 		.httpBasic();
 	}
 	

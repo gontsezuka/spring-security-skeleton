@@ -20,7 +20,15 @@ public class StudentController {
 			new Student(2,"James Bond"),
 			new Student(3,"Zukalover Mzingaye")
 			);
-	
+	/**
+	 * USING THE @PreAuthorize("") to secure API's instead of AntMatchers
+	 * 
+	 * hasRole('ROLE_')
+	 * hasAuthority('permission')
+	 * 
+	 * @param studentId
+	 * @return
+	 */
 	@GetMapping("/get-student/{studentid}")
 	public Student getStudent(@PathVariable("studentid") int studentId)
 	{
